@@ -10,13 +10,5 @@ words.style.margin = '5px';
 
 var startButton = document.getElementById('btn');
 btn.textContent = "Start";
-/*
-var hideCount = document.getElementById("count");
-hideCount.style.visibility = "hidden";
-if (hideCount === 'hidden') {
-    var hiddenButtons = true;
-} else {
-    document.getElementById('count').style.visibility = 'visible'
-}
-*/
+
 
