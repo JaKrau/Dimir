@@ -47,5 +47,10 @@ button {
     font-size: 24px;
     background-color: #7d5104;
     color: white;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
   }
+
+
   
