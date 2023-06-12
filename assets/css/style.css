@@ -1,14 +1,14 @@
 body {
-    background-color: #eff5f8;
+    background-color: blanchedalmond;
     margin: 0;
-  }
+}
   
 .flex {
     display: flex ;
     height: 4vh;
-    background-color:blanchedalmond;
+    background-color:rgb(230, 212, 185);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
+}
 
 #scoreHolder {
   position: absolute;
@@ -19,24 +19,26 @@ body {
 #timerHolder {
   position: absolute;
   right: 2vw;
-  }
+}
+
+.wrapper {
+  padding-top: 20px;
+}
 
 .container {
+    background-color: rgb(192, 171, 139);
+    border-radius: 69px;
     display: block;
     margin: 80px auto;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: inset -1px -1px 14px 14px rgba(0,0,0,0.2);;
     transition: 0.3s;
     width: 60vw;
-  }
-  
-.wrapper {
-    padding-top: 20px;
-  }
+}
   
 .card-contents {
     padding: 5px 5px 10px 5px;
-  }
+}
   
 button {
     width: 15vw;
@@ -47,13 +49,9 @@ button {
     font-size: 24px;
     background-color: #7d5104;
     color: white;
-    /*display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    */
-  }
-#questions button {
+}
+
+#questionSection button {
     color: white;
 }
 
