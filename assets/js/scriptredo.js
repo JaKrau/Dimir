@@ -9,10 +9,14 @@ var qButton1 = questionSection.children[0];
 var qButton2 = questionSection.children[1];
 var qButton3 = questionSection.children[2];
 var qButton4 = questionSection.children[3];
+var qButtons = [qButton1, qButton2, qButton3, qButton4];
+var correctAnswer = false;
+var resultDisplay = document.getElementById('resultDisplay');
+var answerCheatSheet = ["<script>", "myFunction()"]
 
 // Countdown to Extinction! (good album)
 var timer = 90;
-var score = 0;
+var score;
 
 // Style settings! (not elegant but I can see it without getting a headache)
 scoreHolder.style.fontSize = 'xx-large';
@@ -21,6 +25,8 @@ h1.style.fontSize = '75px';
 words.style.fontSize = 'xx-large';
 words.style.margin = '5px';
 questionSection.style.display = 'none';
+resultDisplay.style.fontSize = '50px';
+
 
 // Content! 
 h1.textContent = "Coding Quiz";
@@ -33,10 +39,12 @@ function renderTimerToBrowser() {
 }
 
 startButton.addEventListener("click", function() {
+    startButton.style.display = 'none';
+    questionSection.style.display = 'block';
+    words.style.display = 'none';
+    
     var interval = setInterval(function() {
-        startButton.style.display = 'none';
-        questionSection.style.display = 'block';
-        words.textContent = "";
+
 
         timer --;
          
@@ -45,13 +53,34 @@ startButton.addEventListener("click", function() {
     }
 
     renderTimerToBrowser();
-    questionGeneration1();
 
     }, 1000);
 });
 
-// Parent 'questions' div needs children with purpose! This seems like a mess of code, but I can't think of how to clean it up efficiently. If anyone reads this and has suggestions, please tell.
-function questionGeneration1() {
+function firstQuestion () {
+    var question1Contents = ["<link>", "<js>", "<script>", "<coding>"];
+
+
+    for (i=0;i<qButtons.length;i++) {
+    console.log(qButtons[i]);
+    qButtons[i].textContent = question1Contents[i];
+    
+}
+
+function checkCorrect(userPick) {
+    if (answerCheatSheet.indexOf(userPick) || userPick) {
+        console.log("HELL YEAH BOI")
+    } else {
+        console.log("OH FUCK");
+    }
+    }
+    checkCorrect();
+}
+
+//checkCorrect();
+renderTimerToBrowser();
+//Early attempt at coding question buttons, ran into quite a few issues.
+/*function questionGeneration1() {
     h1.textContent = "Which HTML element is used for in-line JavaScript?";
     qButton1.textContent = "<link>";
     qButton2.textContent = "<js>";
@@ -113,7 +142,5 @@ function questionGeneration2() {
     });
     
 }
-
-renderTimerToBrowser();
-
+*/
 
