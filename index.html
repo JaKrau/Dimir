@@ -11,26 +11,38 @@
 
 <body>
   <nav class="flex">
-  <div id="scoreHolder"><a href="#viewHighScores">View High Scores</a></div>
+  <div id="navItems" class="highScoreSectionDisplay">
+    <a id="goToHighScores" onclick="highScoreSectionDisplay()" href="#">View High Scores</a>
+  </div>
   <div id="timerHolder"></div>
   </nav>
 
   <main class="wrapper">
     <article class="container">
       <div class="card-contents" >
-        <h1 id="title"></h1>
+        <h1 id="title">Coding Quiz</h1>
+<!--The words section holds our quiz instructions and questions, all populated in the script.js file-->
         <p id="words"></p>
         <br>
         <button id="startButton"></button>
-       
-        <section id = "questionSection">
-           <!--Questions go here-->
+<!--This section becomes visible to the user after the Start Button has been clicked-->
+        <section id ="questionSection">
           <button id="trueButton" type="button"></button>
           <button id="falseButton" type="button"></button>
         </section>
         <div id="resultDisplay"></div>
-        <div id="viewHighScores">
-          <form>TEST</form>
+<!--This area becomes visible to the user after they have completed the quiz.-->
+          <h1 id="scoreBoardInstructions">Submit your initials below and add this score to the scoreboard!</h1>
+          <form id="finalForm">
+              Initials:
+              <input type="text" id="initials" required>
+              <input id="submitButton" type="submit" value="Submit">
+          </form>
+          <div id="scoreView"></div>
+<!--After completing the quiz users are presented with options to clear localStorage or return to the start of the quiz-->
+          <button id="cleanSlateButton" type="button" onclick="cleanSlate()">Clean Slate</button>
+          <button id="quizReturn" type="button" onclick="returnToQuiz()">Return to Quiz</button>
+        </div>
         </div>
       </div>
     </article>
