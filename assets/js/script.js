@@ -16,7 +16,7 @@ let quizReturn = document.getElementById('quizReturn');
 let scoreBoardInstructions = document.getElementById('scoreBoardInstructions');
 let cleanSlateButton = document.getElementById('cleanSlateButton');
 
-//Question/Answer array of objects
+// Question/Answer array of objects
 let questions = [
     { answer: false, text: "You cannot apply css styles via JavaScript." },
     { answer: true, text: "There are two methods to comment your code in JS." },
@@ -32,8 +32,8 @@ let questions = [
 ];
 
 /* 
-Global variables tracked during the quiz, 
-no value changes until startButton event.
+Global variables tracked during the quiz. 
+No value changes occur until the startButton event.
 */
 let timer = 90;
 let score = 0;
@@ -68,28 +68,22 @@ trueButton.textContent = "True";
 falseButton.textContent = "False";
 
 
-// Setting some text content for our HTML elements in JS
-// The words variable needed to be dynamic, the rest could honestly be done on the HTML side
-
-
 // Function to display the player's remaining time.
 function renderTimerToBrowser() {
     timerHolder.textContent = "Time left: " + timer;
 }
 
-// Behold, the button! Birthing our countdown.
+// Start button event listener. Display settings and questionIndex are set/reset here for the quiz.
 startButton.addEventListener("click", function() {
     startButton.style.visibility = 'hidden';
     questionSection.style.visibility = 'visible';
     resultDisplay.style.visibility = 'visible';
     timerHolder.style.visibility = 'visible';
     goToHighScores.style.visibility = 'visible';
-    //gameState = true;
-    console.log(words);
     questionIndex = 0;
     words.textContent = questions[questionIndex];
     setQuestionSection();
-    
+// timer countdown, triggering the highScoreSectionDisplay function if the timer reaches 0 before all questions have been answered.
     let interval = setInterval(function() {
         timer--;  
         if (timer <= 0) {
@@ -101,14 +95,18 @@ startButton.addEventListener("click", function() {
     }, 1000);
 });
 
+// True button - triggers answerQuestion()
 trueButton.addEventListener("click", function() {
     answerQuestion(true);
 });
 
+// False button - triggers answerQuestion()
 falseButton.addEventListener("click", function() {
     answerQuestion(false);   
 });
 
+// This function tracks the questions/answers and updates the score or decrements the time remaining based on user selection.
+// This function also triggers the highScoreSectionDisplay if the user is out of questions to answer.
 function answerQuestion(answer) {
     let question = questions[questionIndex];
     if (question.answer === answer) {
@@ -127,11 +125,14 @@ function answerQuestion(answer) {
   
 }
 
+// This function displays the current question to the user.
 function setQuestionSection() {
     let question = questions[questionIndex];
     words.textContent = question.text
 }
 
+// This is the end state for our quiz, almost entirely comprised of css settings getting updated. 
+// The score is displayed to the user at this point.
 function highScoreSectionDisplay() {
     words.style.visibility = 'hidden';
     timerHolder.style.visibility = 'hidden';
@@ -147,6 +148,7 @@ function highScoreSectionDisplay() {
     
 }
 
+// Container for user initials/score.
 class scoreSave{
     constructor(initials, score){
         this.initials = initials;
@@ -154,6 +156,9 @@ class scoreSave{
     }
 }
 
+// Adding an event listener to our HTML form. 
+// Adds data to scoreSave.
+// Calls submitScore() and printHighScores().
 finalForm.addEventListener('submit', (event) => {
     event.preventDefault();
     let inputScore = new scoreSave(initials.value, score);
@@ -161,6 +166,7 @@ finalForm.addEventListener('submit', (event) => {
     printHighScores();
 });
 
+// Function for holding user scores.
 function submitScore (newScore) {
     let oldScores = getOldScores();
     let revisedScores = [];
@@ -195,6 +201,7 @@ function submitScore (newScore) {
     setNewScores(revisedScores);
 }
 
+// Parsing old scores from local storage.
 function getOldScores() {
     let oldScores = JSON.parse(localStorage.getItem("highScores"));
     if (oldScores == null) {
@@ -205,15 +212,18 @@ function getOldScores() {
     return oldScores;
 }
 
+// Placing user score in local storage.
 function setNewScores(newScores) {
     localStorage.setItem("highScores", JSON.stringify(newScores));
 }
 
+// Clears local storage.
 function cleanSlate() {
     localStorage.removeItem("highScores");
     printHighScores();
 }
 
+// Creates the HTML elements to display user scores.
 function printHighScores() {
     scoreView.innerHTML = "";
     let currentScores = getOldScores();
@@ -228,6 +238,9 @@ function printHighScores() {
     }
 }
 
+// A function to reset/restart the quiz.
+// Our global variables are returned to their initial value.
+// CSS styling gets reset with this function.
 function returnToQuiz() {
     questionIndex = 0;
     timer = 90;
@@ -251,4 +264,5 @@ function returnToQuiz() {
     falseButton.textContent = "False";
 }
 
+// A call for our timer.
 renderTimerToBrowser();
