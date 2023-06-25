@@ -7,15 +7,15 @@ This page offers an 11 question quiz pertaining to JavaScript. You have 90 secon
 
 ## Installation
 
-git clone git@github.com:JaKrau/Dimir.git
+git clone git@github.com: JaKrau/Dimir.git
 
 ## Usage
 
-The site features one nav item, which allows you to view the High Score display at any time. Hit the Start button to begin the quiz. Enter your initials when prompted to save your score, then play again!
+Hit the Start button to begin the quiz. Enter your initials when prompted to save your score, then play again!
   
-   ![site screenshot](/assets/images/codingQuiz_1.png?raw=true)
-   ![site screenshot](/assets/images/codingQuiz_2.png?raw=true)
-   ![site screenshot](/assets/images/codingQuiz_3.png?raw=true)
+   ![site screenshot](./assets/images/codingQuiz_1.png)
+   ![site screenshot](./assets/images/codingQuiz_2.png)
+   ![site screenshot](./assets/images/codingQuiz_3.png)
    
 Link to deployed site: https://jakrau.github.io/Dimir/
 
