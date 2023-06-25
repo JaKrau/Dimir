@@ -13,9 +13,9 @@ git clone git@github.com:JaKrau/Dimir.git
 
 The site features one nav item, which allows you to view the High Score display at any time. Hit the Start button to begin the quiz. Enter your initials when prompted to save your score, then play again!
   
-   ![site screenshot](/assets/images/codingQuiz_1.png?raw=true "nav items")
-   ![site screenshot](/assets/images/codingQuiz_2.png?raw=true "nav items")
-   ![site screenshot](/assets/images/codingQuiz_3.png?raw=true "nav items")
+   ![site screenshot](/assets/images/codingQuiz_1.png?raw=true)
+   ![site screenshot](/assets/images/codingQuiz_2.png?raw=true)
+   ![site screenshot](/assets/images/codingQuiz_3.png?raw=true)
    
 Link to deployed site: https://jakrau.github.io/Dimir/
 
